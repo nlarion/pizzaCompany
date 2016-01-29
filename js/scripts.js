@@ -20,13 +20,24 @@
 // display the list of pizzas ordered as links that can be clicked for details
 // offer a delivery option that then requires address information
 
-var Store = function(name){
-  this.name = name;
+/*
+// UI LOGIC
+*/
+$(document).ready(function(){
+  console.log("Hello World");
+
+});
+
+
+/*
+// BUSINESS LOGIC
+*/
+var Store = function(){
+  this.name = "PizzaTown";
   this.customer;
   this.delivery;
 }
 
-//total will calculate the toatal for this.pizzas which will probablly be an array
 var Customer = function(name){
   this.name = name;
   this.address;
@@ -35,7 +46,6 @@ var Customer = function(name){
 }
 
 Customer.prototype.total = function(){
-  // calcuate total of pizza based on pizza price
   var pizzasRunningTotal = 0;
   this.pizzas.forEach(function(pizza){
     pizzasRunningTotal += pizza.price();
@@ -50,11 +60,10 @@ var Delivery = function(address){
 var Pizza = function(toppings,size){
   this.basePrice = [4.95,11.9,18.8,25.9];
   this.toppings = toppings;
-  this.size = size; //int from 0-3
+  this.size = size;
 }
 
 Pizza.prototype.price = function(){
-  // calculate individual pizza price based on toppings and size
   var toppingsRunningTotal = 0;
   var toppingsList = new ToppingsList();
   var toppingsPrice = new ToppingsPrice();

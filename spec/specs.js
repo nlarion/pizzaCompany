@@ -1,7 +1,7 @@
 describe('Store', function(){
   it("Will return new store object ", function(){
-    var store = new Store("somename");
-    expect(store.name).to.equal("somename");
+    var store = new Store();
+    expect(store.name).to.equal("PizzaTown");
   });
 });
 
@@ -16,7 +16,6 @@ describe('Customer', function(){
     customer.pizzas.push(pizza);
     var pizza = new Pizza(["Extra Cheese","Jalapeno"],3);
     customer.pizzas.push(pizza);
-    console.log(customer);
     expect(customer.total()).to.equal(57.20);
   });
 });
