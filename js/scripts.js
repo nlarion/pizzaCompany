@@ -36,7 +36,11 @@ var Customer = function(name){
 
 Customer.prototype.total = function(){
   // calcuate total of pizza based on pizza price
-  return false;
+  var pizzasRunningTotal = 0;
+  this.pizzas.forEach(function(pizza){
+    pizzasRunningTotal += pizza.price();
+  });
+  return pizzasRunningTotal;
 }
 
 var Delivery = function(address){
@@ -54,7 +58,6 @@ Pizza.prototype.price = function(){
   var toppingsRunningTotal = 0;
   var toppingsList = new ToppingsList();
   var toppingsPrice = new ToppingsPrice();
-  console.log(this.size);
   var size = this.size;
   this.toppings.forEach(function(topping){
     for (var i = 0; i < toppingsList.length; i++) {

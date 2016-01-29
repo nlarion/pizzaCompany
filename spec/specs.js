@@ -16,6 +16,7 @@ describe('Customer', function(){
     customer.pizzas.push(pizza);
     var pizza = new Pizza(["Extra Cheese"],3);
     customer.pizzas.push(pizza);
+    console.log(customer);
     expect(customer.total()).to.equal(55.80);
   });
 });
