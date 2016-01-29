@@ -58,5 +58,5 @@ var Toppings = function(){
 }
 
 var ToppingsPrice = function(){
-  return [[0.40,0.70,1.00,1.4]];
+  return [[0.4,0.7,1,1.4],[0.5,1,1.5,2][0.6,2.1,3,4.2]];
 }

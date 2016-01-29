@@ -50,6 +50,6 @@ describe('Toppings', function(){
 describe('ToppingsPrice', function(){
   it("Will return a multi-dimentional array of toppings prices at different sizes", function(){
     var toppingsPrice = new ToppingsPrice();
-    expect(toppingsPrice).to.eql([[0.40,0.70,1.00,1.4]]);
+    expect(toppingsPrice).to.eql([[0.4,0.7,1,1.4],[0.5,1,1.5,2][0.6,2.1,3,4.2]]);
   });
 });
