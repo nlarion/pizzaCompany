@@ -19,3 +19,26 @@
 // allow users to order more than one pizza with different toppings
 // display the list of pizzas ordered as links that can be clicked for details
 // offer a delivery option that then requires address information
+
+var Store = function(name){
+  this.name = name;
+  this.customer;
+  this.delivery;
+}
+
+//total will calculate the toatal for this.pizzas which will probablly be an array
+var Customer = function(name){
+  this.name = name;
+  this.address;
+  this.total;
+  this.pizzas;
+}
+
+var Delivery = function(address){
+  this.address = address;
+}
+
+//give pizza a price function that will calculate the price based on toppings obj or array
+var Pizza = function(toppings){
+  this.toppings = toppings;
+}
