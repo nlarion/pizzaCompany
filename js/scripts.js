@@ -52,13 +52,15 @@ var Pizza = function(toppings,size){
 Pizza.prototype.price = function(){
   // calculate individual pizza price based on toppings and size
   var toppingsRunningTotal = 0;
-  var toppingsList = new Toppings();
+  var toppingsList = new ToppingsList();
   var toppingsPrice = new ToppingsPrice();
+  console.log(this.size);
+  var size = this.size;
   this.toppings.forEach(function(topping){
-    for (var i = 0; i < toppings.length; i++) {
-      for (var j = 0; j < toppings[i].length; j++) {
-        if(topping){
-
+    for (var i = 0; i < toppingsList.length; i++) {
+      for (var j = 0; j < toppingsList[i].length; j++) {
+        if(topping === toppingsList[i][j]){
+          toppingsRunningTotal += toppingsPrice[i][size];
         }
       }
     }
@@ -71,5 +73,5 @@ var ToppingsList = function(){
 }
 
 var ToppingsPrice = function(){
-  return [[0.4,0.7,1,1.4],[0.5,1,1.5,2][0.6,2.1,3,4.2]];
+  return [[0.4,0.7,1,1.4],[0.5,1,1.5,2],[0.6,2.1,3,4.2]];
 }
