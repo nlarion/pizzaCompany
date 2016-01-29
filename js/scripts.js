@@ -43,10 +43,10 @@ var Delivery = function(address){
   this.address = address;
 }
 
-//give pizza a price function that will calculate the price based on toppings obj or array
 var Pizza = function(toppings,size){
+  this.basePrice = [4.95,11.9,18.8,25.9];
   this.toppings = toppings;
-  this.size = size;
+  this.size = size; //int from 0-3
 }
 
 Pizza.prototype.price = function(){

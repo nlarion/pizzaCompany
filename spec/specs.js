@@ -12,12 +12,11 @@ describe('Customer', function(){
   });
   it("Will calculate total of pizzas based on pizza price ", function(){
     var customer = new Customer("somename");
-    var pizza = new Pizza(["Extra Cheese"],"Large");
+    var pizza = new Pizza(["Extra Cheese"],3);
     customer.pizzas.push(pizza);
-    var pizza = new Pizza(["Extra Cheese"],"Large");
+    var pizza = new Pizza(["Extra Cheese"],3);
     customer.pizzas.push(pizza);
     expect(customer.total()).to.equal(55.80);
-
   });
 });
 
@@ -30,14 +29,17 @@ describe('Delivery', function(){
 
 describe('Pizza', function(){
   it("Will return new Pizza object ", function(){
-    var pizza = new Pizza(["cheese"],"Large");
-    expect(pizza.toppings).to.eql(["cheese"]);
+    var pizza = new Pizza(["Extra Cheese"],3);
+    expect(pizza.toppings).to.eql(["Extra Cheese"]);
+  });
+  it("Will return a pizzas base price array ", function(){
+    var pizza = new Pizza(["Extra Cheese"],3);
+    expect(pizza.basePrice).to.eql([4.95,11.9,18.8,25.9]);
   });
   it("Will return this pizza's price ", function(){
-    var pizza = new Pizza(["Extra Cheese"],"Large");
+    var pizza = new Pizza(["Extra Cheese"],3);
     expect(pizza.price).to.equal(27.90);
   });
-
 });
 
 describe('Toppings', function(){
