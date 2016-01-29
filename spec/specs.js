@@ -10,6 +10,15 @@ describe('Customer', function(){
     var customer = new Customer("somename");
     expect(customer.name).to.equal("somename");
   });
+  it("Will calculate total of pizzas based on pizza price ", function(){
+    var customer = new Customer("somename");
+    var pizza = new Pizza(["Extra Cheese"],"Large");
+    customer.pizzas.push(pizza);
+    var pizza = new Pizza(["Extra Cheese"],"Large");
+    customer.pizzas.push(pizza);
+    expect(customer.total()).to.equal(55.80);
+
+  });
 });
 
 describe('Delivery', function(){
@@ -20,8 +29,27 @@ describe('Delivery', function(){
 });
 
 describe('Pizza', function(){
-  it("Will return new Delivery object ", function(){
-    var pizza = new Pizza(["cheese"]);
+  it("Will return new Pizza object ", function(){
+    var pizza = new Pizza(["cheese"],"Large");
     expect(pizza.toppings).to.eql(["cheese"]);
+  });
+  it("Will return this pizza's price ", function(){
+    var pizza = new Pizza(["Extra Cheese"],"Large");
+    expect(pizza.price).to.equal(27.90);
+  });
+
+});
+
+describe('Toppings', function(){
+  it("Will return a multi-dimentional array of all toppings", function(){
+    var toppings = new Toppings();
+    expect(toppings).to.eql([["Olives","Canned Mushrooms","Fresh Mushrooms","Tomatoes","Green Peppers","Onions","Pineapple","Jalapeno","Garlic","Banana Wax Peppers","Spinach","Broccoli","Extra Sauce","Taco Chips"],["Pepperoni","Canadian Bacon-Styled Ham","Linguica","BBQ Chicken","Garlic Chicken","Fajita Chicken","Salami","Spicy Pepperoni","Country Sausage","Spicy Itilian Sausage","Fresh Lean Beef","Breakfast Baccon","Cheddar Topping","Extra Cheese"],["Artichoke Hears","Shrimp","Smoked Oysters","Anchovies"]]);
+  });
+});
+
+describe('ToppingsPrice', function(){
+  it("Will return a multi-dimentional array of toppings prices at different sizes", function(){
+    var toppingsPrice = new ToppingsPrice();
+    expect(toppingsPrice).to.eql([[0.40,0.70,1.00,1.4]]);
   });
 });

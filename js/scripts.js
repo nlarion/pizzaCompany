@@ -31,7 +31,12 @@ var Customer = function(name){
   this.name = name;
   this.address;
   this.total;
-  this.pizzas;
+  this.pizzas = [];
+}
+
+Customer.prototype.total = function(){
+  // calcuate total of pizza based on pizza price
+  return false;
 }
 
 var Delivery = function(address){
@@ -39,6 +44,19 @@ var Delivery = function(address){
 }
 
 //give pizza a price function that will calculate the price based on toppings obj or array
-var Pizza = function(toppings){
+var Pizza = function(toppings,size){
   this.toppings = toppings;
+  this.size = size;
+}
+
+Pizza.prototype.price = function(){
+  // calculate individual pizza price based on toppings and size
+}
+
+var Toppings = function(){
+  return [["Olives","Canned Mushrooms","Fresh Mushrooms","Tomatoes","Green Peppers","Onions","Pineapple","Jalapeno","Garlic","Banana Wax Peppers","Spinach","Broccoli","Extra Sauce","Taco Chips"],["Pepperoni","Canadian Bacon-Styled Ham","Linguica","BBQ Chicken","Garlic Chicken","Fajita Chicken","Salami","Spicy Pepperoni","Country Sausage","Spicy Itilian Sausage","Fresh Lean Beef","Breakfast Baccon","Cheddar Topping","Extra Cheese"],["Artichoke Hears","Shrimp","Smoked Oysters","Anchovies"]];
+}
+
+var ToppingsPrice = function(){
+  return [[0.40,0.70,1.00,1.4]];
 }
