@@ -40,7 +40,7 @@ Customer.prototype.total = function(){
   this.pizzas.forEach(function(pizza){
     pizzasRunningTotal += pizza.price();
   });
-  return pizzasRunningTotal;
+  return Math.round(pizzasRunningTotal*100)/100;
 }
 
 var Delivery = function(address){
@@ -68,7 +68,8 @@ Pizza.prototype.price = function(){
       }
     }
   });
-  return this.basePrice[this.size]+toppingsRunningTotal;
+  var ret = this.basePrice[this.size]+toppingsRunningTotal;
+  return Math.round(ret*100)/100; //gotta round cuz js sux at math
 }
 
 var ToppingsList = function(){
