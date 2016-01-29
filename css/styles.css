@@ -1,3 +1,119 @@
-.top{
-  height: 30%;
+/*
+green 6D6D04
+light white EBE4C4
+yellow: F1B42F
+red: B44418
+light brown: D1A674
+*/
+
+body,html {
+  background-color: #6D6D04;
+  height: 100%;
+}
+
+.container {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.top {
+  background-color: #B44418;
+  display: table-row;
+  height: 15%;
+}
+
+.middle {
+  background-color: #EBE4C4;
+  display: table-row;
+  height: 35%;
+}
+
+
+.bottom {
+  background-color: #D1A674;
+  display: table-row;
+  height: 45%;
+}
+
+.main {
+
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+  display: block;
+
+}
+
+.pizzaSize {
+  padding-top:25px;
+}
+
+.pizzaDisplay {
+  height: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn-circle.btn-mini {
+  display: inline;
+  width: 90px;
+  height: 90px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 45px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  /*background-color: #e74c3c;*/
+}
+
+.btn-circle.btn-small {
+  display: inline;
+  width: 110px;
+  height: 110px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 55px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.btn-circle.btn-medium {
+  display: inline;
+  width: 130px;
+  height: 130px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 65px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.btn-circle.btn-large {
+  display: inline;
+  width: 150px;
+  height: 150px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 75px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.btn-circle.btn-submit {
+  display: inline;
+  width: 90px;
+  height:90px;
+  padding: 0px 16px 15px;
+  font-size: 70px;
+  line-height: 0;
+  border-radius: 45px;
+  margin-right: 10px;
+  margin-bottom: 15px;
 }

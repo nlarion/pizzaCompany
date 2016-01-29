@@ -24,10 +24,18 @@
 // UI LOGIC
 */
 $(document).ready(function(){
-  console.log("Hello World");
-
+  $('[data-toggle="tooltip"]').tooltip()
+  var store = new Store();
+  store.customer = new Customer("Default");
+  $("form#newPizza").submit(function(event) {
+    event.preventDefault();
+    var allToppings = [];
+    $("#newPizza :checked").each(function(){
+      allToppings.push($(this).val());
+    });
+    console.log(allToppings);
+  });
 });
-
 
 /*
 // BUSINESS LOGIC
@@ -82,7 +90,7 @@ Pizza.prototype.price = function(){
 }
 
 var ToppingsList = function(){
-  return [["Olives","Canned Mushrooms","Fresh Mushrooms","Tomatoes","Green Peppers","Onions","Pineapple","Jalapeno","Garlic","Banana Wax Peppers","Spinach","Broccoli","Extra Sauce","Taco Chips"],["Pepperoni","Canadian Bacon-Styled Ham","Linguica","BBQ Chicken","Garlic Chicken","Fajita Chicken","Salami","Spicy Pepperoni","Country Sausage","Spicy Itilian Sausage","Fresh Lean Beef","Breakfast Baccon","Cheddar Topping","Extra Cheese"],["Artichoke Hears","Shrimp","Smoked Oysters","Anchovies"]];
+  return [["Olives","Canned Mushrooms","Fresh Mushrooms","Tomatoes","Green Peppers","Onions","Pineapple","Jalapeno","Garlic","Banana Wax Peppers","Spinach","Broccoli","Extra Sauce","Taco Chips"],["Pepperoni","Canadian Bacon","Linguica","BBQ Chicken","Garlic Chicken","Fajita Chicken","Salami","Spicy Pepperoni","Country Sausage","Spicy Itilian Sausage","Fresh Lean Beef","Breakfast Baccon","Cheddar Topping","Extra Cheese"],["Artichoke Hears","Shrimp","Smoked Oysters","Anchovies"]];
 }
 
 var ToppingsPrice = function(){
