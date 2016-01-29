@@ -51,9 +51,22 @@ var Pizza = function(toppings,size){
 
 Pizza.prototype.price = function(){
   // calculate individual pizza price based on toppings and size
+  var toppingsRunningTotal = 0;
+  var toppingsList = new Toppings();
+  var toppingsPrice = new ToppingsPrice();
+  this.toppings.forEach(function(topping){
+    for (var i = 0; i < toppings.length; i++) {
+      for (var j = 0; j < toppings[i].length; j++) {
+        if(topping){
+
+        }
+      }
+    }
+  });
+  return this.basePrice[this.size]+toppingsRunningTotal;
 }
 
-var Toppings = function(){
+var ToppingsList = function(){
   return [["Olives","Canned Mushrooms","Fresh Mushrooms","Tomatoes","Green Peppers","Onions","Pineapple","Jalapeno","Garlic","Banana Wax Peppers","Spinach","Broccoli","Extra Sauce","Taco Chips"],["Pepperoni","Canadian Bacon-Styled Ham","Linguica","BBQ Chicken","Garlic Chicken","Fajita Chicken","Salami","Spicy Pepperoni","Country Sausage","Spicy Itilian Sausage","Fresh Lean Beef","Breakfast Baccon","Cheddar Topping","Extra Cheese"],["Artichoke Hears","Shrimp","Smoked Oysters","Anchovies"]];
 }
 

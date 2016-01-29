@@ -38,13 +38,13 @@ describe('Pizza', function(){
   });
   it("Will return this pizza's price ", function(){
     var pizza = new Pizza(["Extra Cheese"],3);
-    expect(pizza.price).to.equal(27.90);
+    expect(pizza.price()).to.equal(27.90);
   });
 });
 
-describe('Toppings', function(){
+describe('ToppingsList', function(){
   it("Will return a multi-dimentional array of all toppings", function(){
-    var toppings = new Toppings();
+    var toppings = new ToppingsList();
     expect(toppings).to.eql([["Olives","Canned Mushrooms","Fresh Mushrooms","Tomatoes","Green Peppers","Onions","Pineapple","Jalapeno","Garlic","Banana Wax Peppers","Spinach","Broccoli","Extra Sauce","Taco Chips"],["Pepperoni","Canadian Bacon-Styled Ham","Linguica","BBQ Chicken","Garlic Chicken","Fajita Chicken","Salami","Spicy Pepperoni","Country Sausage","Spicy Itilian Sausage","Fresh Lean Beef","Breakfast Baccon","Cheddar Topping","Extra Cheese"],["Artichoke Hears","Shrimp","Smoked Oysters","Anchovies"]]);
   });
 });
