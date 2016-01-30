@@ -1,52 +1,31 @@
-//TODO:
-// Create a website for a pizza company where a user can order a pizza and see the final cost:
-
-// Allow the user to choose toppings and size for the pizza they'd like to order.
-// Create a pizza object constructor with properties for toppings and size.
-// Create a prototype method for the cost of a pizza depending on the selections chosen. Use your own formula for this.
-//
-//
-//When you finish, submit it at the JavaScript OO link on Epicenter. Your teachers will review your code based on the following criteria:
-//
-// Code meets standards from previous weeks
-// Objects drive business logic (in JavaScript not jQuery)
-// Specs written for JavaScript functions
-// Constructors and prototypes used successfully
-// Web application works as expected
-
-//TODO: EXTRA
-// style your site with CSS and images
-// allow users to order more than one pizza with different toppings
-// display the list of pizzas ordered as links that can be clicked for details
-// offer a delivery option that then requires address information
-
 /*
 // UI LOGIC
 */
 $(document).ready(function(){
+  var sizeArr = ["Mini","Small","Medium","Large"];
   $('[data-toggle="tooltip"]').tooltip()
   var store = new Store();
   store.customer = new Customer("Default");
   $("form#newPizza").submit(function(event) {
-    var pizzaSize = $(".size :checked").val();
     var pizzaSize = $('input[name=size]:checked').val()
-    if (!pizzaSize){
-      alert("Please Select the size of pizza you'd like!");
-    }else{
-      var allToppings = [];
-      $("#newPizza :checked").each(function(){
-        allToppings.push($(this).val());
-      });
-      var pizza = new Pizza(allToppings,pizzaSize);
-      store.customer.pizzas.push(pizza);
-
-      $('#total').text("$"+store.customer.total().toFixed(2));
-      console.log(store.customer);
-    }
+    var allToppings = [];
+    $("#newPizza :checked").each(function(){
+      allToppings.push($(this).val());
+    });
+    var pizza = new Pizza(allToppings,pizzaSize);
+    store.customer.pizzas.push(pizza);
+    $('#total').text("$"+store.customer.total().toFixed(2));
+    $("ul#orders").append("<li><span class='order' id='pizza"+store.customer.order+"'>Order " + (store.customer.order+1) + "</span></li>");
+    $('.order').last().click(function(e) {
+      $("#pizzaDisplay").empty();
+      var order = e.toElement.getAttribute("id");
+      order = order.replace(/pizza/g,"");
+      $("#pizzaDisplay").append("<h3>Order Number: "+(parseInt(order)+1)+"</h3><h4>Total: "+store.customer.pizzas[order].price()+"</h4><h5>Toppings: "+store.customer.pizzas[order].toppings.toString()+"</h5><h6>Size: "+sizeArr[parseInt(store.customer.pizzas[order].size)]+"</h6>");
+    });
+    store.customer.order++;
+    console.log(store.customer);
     event.preventDefault();
   });
-
-
 });
 
 /*
@@ -63,6 +42,7 @@ var Customer = function(name){
   this.address;
   this.total;
   this.pizzas = [];
+  this.order = 0;
 }
 
 Customer.prototype.total = function(){

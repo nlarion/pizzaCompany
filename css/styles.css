@@ -1,14 +1,11 @@
-/*
-green 6D6D04
-light white EBE4C4
-yellow: F1B42F
-red: B44418
-light brown: D1A674
-*/
-
 body,html {
-  background-color: #6D6D04;
+  background-color: #F1B42F;
   height: 100%;
+}
+
+.order {
+  cursor: pointer;
+  color: #0088cc;
 }
 
 .container {
@@ -28,7 +25,6 @@ body,html {
   display: table-row;
   height: 35%;
 }
-
 
 .bottom {
   background-color: #D1A674;
@@ -66,7 +62,6 @@ body,html {
   border-bottom-right-radius: 45px;
   margin-right: 10px;
   margin-bottom: 15px;
-  /*background-color: #e74c3c;*/
 }
 
 .btn-circle.btn-small {
@@ -120,6 +115,16 @@ body,html {
   margin-bottom: 15px;
 }
 
+.white {
+  z-index: 3;
+  background-color: white
+}
+
+h1{
+  font-weight: bold;
+  font-size: 50px;
+}
+
 #total {
-  font-size: 70px;
+  font-size: 60px;
 }
