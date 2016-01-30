@@ -18,14 +18,25 @@
       <div class="row top">
         <div class="col-xs-9 center">
           <div class="pizzaSize">
-            <button type="button" class="btn btn-danger btn-circle btn-mini" data-toggle="tooltip" data-placement="bottom" title="Mini">Mini</button>
-            <button type="button" class="btn btn-danger btn-circle btn-small" data-toggle="tooltip" data-placement="bottom" title="Small">Small</button>
-            <button type="button" class="btn btn-danger btn-circle btn-medium" data-toggle="tooltip" data-placement="bottom" title="Medium">Medium</button>
-            <button type="button" class="btn btn-danger btn-circle btn-large" data-toggle="tooltip" data-placement="bottom" title="Large">Large</button>
+            <div class="btn-group size" data-toggle="buttons">
+              <label class="btn btn-danger btn-circle btn-mini active">
+                <input type="radio" value="0" autocomplete="off" checked>Mini
+              </label>
+              <label class="btn btn-danger btn-circle btn-small">
+                <input type="radio" value="1" autocomplete="off">Small
+              </label>
+              <label class="btn btn-danger btn-circle btn-medium">
+                <input type="radio" value="2" autocomplete="off">Medium
+              </label>
+              <label class="btn btn-danger btn-circle btn-large">
+                <input type="radio" value="3" autocomplete="off">Large
+              </label>
+            </div>
           </div>
         </div>
         <div class="col-xs-3 center">
-          Total:
+          <h1>Total:</h1><br>
+          <span id="total"></span>
         </div>
       </div>
       <div class="row middle">

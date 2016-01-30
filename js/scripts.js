@@ -27,14 +27,25 @@ $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip()
   var store = new Store();
   store.customer = new Customer("Default");
+  var pizzaSize = false;
   $("form#newPizza").submit(function(event) {
+    if (!pizzaSize){
+      alert("Please Select the size of pizza you'd like!");
+    }else{
+      var allToppings = [];
+      $("#newPizza :checked").each(function(){
+        allToppings.push($(this).val());
+      });
+
+      var pizza = new Pizza(allToppings,pizzaSize);
+      store.customer.pizzas.push(pizza);
+      console.log(store.customer.pizzas);
+    }
     event.preventDefault();
-    var allToppings = [];
-    $("#newPizza :checked").each(function(){
-      allToppings.push($(this).val());
-    });
-    console.log(allToppings);
   });
+
+  pizzaSize = $(".size :checked").val();
+
 });
 
 /*
