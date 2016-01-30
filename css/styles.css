@@ -36,10 +36,6 @@ body,html {
   height: 45%;
 }
 
-.main {
-
-}
-
 .center {
   text-align: center;
   margin: auto;
@@ -122,4 +118,8 @@ body,html {
   border-radius: 45px;
   margin-right: 10px;
   margin-bottom: 15px;
+}
+
+#total {
+  font-size: 70px;
 }

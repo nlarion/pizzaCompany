@@ -27,8 +27,9 @@ $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip()
   var store = new Store();
   store.customer = new Customer("Default");
-  var pizzaSize = false;
   $("form#newPizza").submit(function(event) {
+    var pizzaSize = $(".size :checked").val();
+    var pizzaSize = $('input[name=size]:checked').val()
     if (!pizzaSize){
       alert("Please Select the size of pizza you'd like!");
     }else{
@@ -36,15 +37,15 @@ $(document).ready(function(){
       $("#newPizza :checked").each(function(){
         allToppings.push($(this).val());
       });
-
       var pizza = new Pizza(allToppings,pizzaSize);
       store.customer.pizzas.push(pizza);
-      console.log(store.customer.pizzas);
+
+      $('#total').text("$"+store.customer.total().toFixed(2));
+      console.log(store.customer);
     }
     event.preventDefault();
   });
 
-  pizzaSize = $(".size :checked").val();
 
 });
 
@@ -96,7 +97,7 @@ Pizza.prototype.price = function(){
       }
     }
   });
-  var ret = this.basePrice[this.size]+toppingsRunningTotal;
+  var ret = this.basePrice[size]+toppingsRunningTotal;
   return Math.round(ret*100)/100; //gotta round cuz js sux at math
 }
 
